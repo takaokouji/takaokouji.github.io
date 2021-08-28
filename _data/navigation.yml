@@ -1,0 +1,11 @@
+main:
+  - title: "About"
+    url: /about/
+  - title: "記事"
+    url: /year-archive/
+  - title: "カテゴリ"
+    url: /categories/
+  - title: "タグ"
+    url: /tags/
+  - title: "Terms &amp; Privacy Policy"
+    url: /terms/
