@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: single-with-ad
 title:  "高尾、ブログやるってよ"
 date:   2021-08-28 15:23:57 +0900
 categories: diary
@@ -19,8 +19,6 @@ tags:
 
 記事の内容に「なるほど」と感じてもらえたり、「それはこういうことだよ」と私に説明したくなったら、ぜひコメントをお願いします。励みになります。
 (ただ、いただいたコメントは読みますが返信は期待しないでくださいね)
-
-{% include advertisements.html %}
 
 - - -
 
