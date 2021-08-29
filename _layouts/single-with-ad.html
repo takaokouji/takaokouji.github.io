@@ -14,6 +14,8 @@ layout: default
   {% endunless %}
 {% endif %}
 
+{% include advertisements.html %}
+
 <div id="main" role="main">
   {% include sidebar.html %}
 
@@ -41,7 +43,6 @@ layout: default
           </aside>
         {% endif %}
         {{ content }}
-        {% include advertisements.html %}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
 
