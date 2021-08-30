@@ -18,7 +18,7 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 locale                   : "ja-JP"
 title                    : "Takaokouji I/O"
 title_separator          : "-"
-subtitle                 : "高尾宏治の「なるほど (Input)」と「それはこういうことだよ (Output)」"
+subtitle                 : "高尾宏治の「なるほど」と「それは○○だよ」"
 name                     : "Kouji Takao"
 description              : "Takaokouji's blog."
 url                      : "https://takaokouji.github.io"
@@ -28,7 +28,7 @@ teaser                   : # path of fallback teaser image, e.g. "/assets/images
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
-words_per_minute         : 200
+words_per_minute         : 400
 comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
@@ -195,7 +195,7 @@ incremental: false
 # Markdown Processing
 kramdown:
   input: GFM
-  hard_wrap: false
+  hard_wrap: true
   auto_ids: true
   footnote_nr: 1
   entity_output: as_char
@@ -219,19 +219,31 @@ timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 # Plugins (previously gems:)
 plugins:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
+  - jekyll-avatar
   - jekyll-feed
+  - jekyll-gist
   - jekyll-include-cache
+  - jekyll-mentions
+  - jekyll-paginate
+  - jekyll-relative-links
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-titles-from-headings
+  - jemoji
 
 # mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-paginate
-  - jekyll-sitemap
-  - jekyll-gist
+  - jekyll-avatar
   - jekyll-feed
+  - jekyll-gist
   - jekyll-include-cache
+  - jekyll-mentions
+  - jekyll-paginate
+  - jekyll-relative-links
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-titles-from-headings
+  - jemoji
 
 # Archives
 #  Type

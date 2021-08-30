@@ -7,5 +7,7 @@ main:
     url: /categories/
   - title: "タグ"
     url: /tags/
-  - title: "Terms &amp; Privacy Policy"
+  - title: "規約とプライバシーポリシー"
     url: /terms/
+  - title: "サイトマップ"
+    url: /sitemap/
