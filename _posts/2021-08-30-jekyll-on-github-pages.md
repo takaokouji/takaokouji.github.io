@@ -194,5 +194,9 @@ _includes/advertisements.html に Google AdSense で取得したコードを記�
 
 ### 記事に画像を追加
 
+記事のプロパティに以下を追加。
 
-
+```yaml
+header:
+  image: /assets/images/jekyll-on-github-pages/jekyll-on-github-pages.png
+```
