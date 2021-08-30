@@ -20,16 +20,13 @@ sitemap.xml にアクセスするとそれっぽい XML を返している。
 
 Googleで調べたところ、最後のものが有力。つまり、 Google に相談しろと。
 
-sitemap.xml は [jekyll-sitemap](https://github.com/jekyll/jekyll-sitemap) プラグインで自動生成する。
-
-sitemap.xml をコミットしている場合、 GitHub Pages が自動生成したものが上書きしてしまい、正しく動作しないことがあるらしい。
-- [Troubleshooting: XML Sitemap when hosting on GitHub](https://www.cross-validated.com/XML-Sitemap-Problem-when-hosting-on-GitHub/)
-
-プラグインを利用せずに sitemap.xml を出力することもできるらしい。
-- [Generating a basic sitemap.xml with Jekyll](http://www.independent-software.com/generating-a-sitemap-xml-with-jekyll-without-a-plugin.html)
-
-同様の問題が発生していたが Google に問い合わせてしばらくすると解決したらしい。
-- [Google deliberately does not accept sitemap.xml of Github Pages](https://github.community/t/google-deliberately-does-not-accept-sitemap-xml-of-github-pages/184937)
+- sitemap.xml は [jekyll-sitemap](https://github.com/jekyll/jekyll-sitemap) プラグインで自動生成する。
+- sitemap.xml をコミットしている場合、 GitHub Pages が自動生成したものが上書きしてしまい、正しく動作しないことがあるらしい。
+  - [Troubleshooting: XML Sitemap when hosting on GitHub](https://www.cross-validated.com/XML-Sitemap-Problem-when-hosting-on-GitHub/)
+- プラグインを利用せずに sitemap.xml を出力することもできるらしい。
+  - [Generating a basic sitemap.xml with Jekyll](http://www.independent-software.com/generating-a-sitemap-xml-with-jekyll-without-a-plugin.html)
+- 同様の問題が発生していたが Google に問い合わせてしばらくすると解決したらしい。
+  - [Google deliberately does not accept sitemap.xml of Github Pages](https://github.community/t/google-deliberately-does-not-accept-sitemap-xml-of-github-pages/184937)
 
 とりあえず Google にフィードバックを送ることにした。進展があれば追記する予定。
 
