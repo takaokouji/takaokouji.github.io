@@ -7,7 +7,7 @@ tagline: "だけどできないのはなぜ？"
 header:
   overlay_image: /assets/images/wanna-submit-sitemap/google-search-console-sitemap.png
   overlay_filter: 0.4
-last_modified_at: 2021-08-30T21:21:48:07+0900
+last_modified_at: 2021-08-30T22:22:15:14+0900
 ---
 [Google Search Console](https://search.google.com/search-console) に [sitemap.xml](https://takaokouji.github.io/sitemap.xml) を追加できない。
 
@@ -31,4 +31,12 @@ sitemap.xml をコミットしている場合、 GitHub Pages が自動生成し
 同様の問題が発生していたが Google に問い合わせてしばらくすると解決したらしい。
 - [Google deliberately does not accept sitemap.xml of Github Pages](https://github.community/t/google-deliberately-does-not-accept-sitemap-xml-of-github-pages/184937)
 
-とりあえず、 Google に問い合わせてみることにした。進展があれば追記する予定。
+とりあえず Google にフィードバックを送ることにした。進展があれば追記する予定。
+
+- - -
+
+あと余談だけど、これ、すごい便利。
+![フィードバックのUI](/assets/images/wanna-submit-sitemap/google-search-console-feedback-ui.png)
+これは Google にフィードバックを送るときのUIなんだけど、自動でスクリーンショットが撮られて、ドラッグ&ドロップで注目してほしい箇所を選択できて、必要なら説明も追加できる。
+
+こういうのほしいよね。
