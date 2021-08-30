@@ -3,6 +3,7 @@ layout: archive
 title: "サイトマップ"
 permalink: /sitemap/
 author_profile: false
+sitemap: false
 ---
 
 全記事とページの一覧です。
