@@ -2,6 +2,7 @@
 title: About
 permalink: /about/
 last_modified_at: 2021-08-30T16:19:00+09:00
+sitemap: true
 ---
 
 このサイトは 高尾宏治 が個人で運営しているブログです。

@@ -1,8 +1,9 @@
 ---
 permalink: /terms/
-title: "Terms and Privacy Policy"
+title: "規約とプライバシーポリシー"
 last_modified_at: 2021-08-30T16:18:00+09:00
 toc: true
+sitemap: true
 ---
 
 ## Privacy Policy

@@ -11,7 +11,9 @@ For you robots out there is an [XML version]({{ "sitemap.xml" | relative_url }})
 
 <h2>ページ</h2>
 {% for post in site.pages %}
+  {% if post.sitemap %}
   {% include archive-single.html %}
+  {% endif %}
 {% endfor %}
 
 <h2>記事</h2>
