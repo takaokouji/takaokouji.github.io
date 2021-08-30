@@ -5,7 +5,10 @@ categories: output setup
 tags: jekyll
 toc: true
 header:
-  image: /assets/images/jekyll-on-github-pages/jekyll-on-github-pages.png
+  overlay_image: /assets/images/jekyll-on-github-pages/jekyll-on-github-pages.png
+  overlay_filter: 0.4
+tagline: ""
+last_modified_at: 2021-08-30T22:22:23:46+0900
 ---
 ダメだダメだとわかっていても手段と目的が入れ替わっちゃうんですよね。ブログを書くことが目的なのに、いつのまにかJekyll[^1]のソースコードを読んだり、テンプレートをつくってみたり。新しいことを始めると、そこらじゅうに沼があるので足をとられないように気をつけないといけません。
 

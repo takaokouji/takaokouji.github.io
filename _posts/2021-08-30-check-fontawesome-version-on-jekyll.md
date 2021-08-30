@@ -3,6 +3,7 @@ layout: single
 title: "利用中のFontawesomeのバージョンの確認方法"
 categories: output setup
 tags: jekyll
+last_modified_at: 2021-08-30T22:22:23:41+0900
 ---
 [fontawesome.com](https://fontawesome.com/) でアイコンを検索 → コピペ → 表示されない、ってこれ、何回同じことをするんだよ。アイコンが表示できない原因のひとつはFontawesomeのバージョンが違うこと。
 

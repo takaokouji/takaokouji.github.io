@@ -3,11 +3,11 @@ layout: single
 title:  "Google Search Console に sitemap.xml を追加したい！"
 categories: output setup
 tags: jekyll
-tagline: "だけどできないのはなぜ？"
 header:
   overlay_image: /assets/images/wanna-submit-sitemap/google-search-console-sitemap.png
   overlay_filter: 0.4
-last_modified_at: 2021-08-30T22:22:15:14+0900
+tagline: "だけどできないのはなぜ？"
+last_modified_at: 2021-08-30T22:22:23:52+0900
 ---
 [Google Search Console](https://search.google.com/search-console) に [sitemap.xml](https://takaokouji.github.io/sitemap.xml) を追加できない。
 
