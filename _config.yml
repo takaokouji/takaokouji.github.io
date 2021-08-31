@@ -234,9 +234,12 @@ whitelist:
   - jekyll-feed
   - jekyll-gist
   - jekyll-include-cache
+  - jekyll-mentions
   - jekyll-paginate
+  - jekyll-relative-links
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-titles-from-headings
   - jemoji
 
 # Archives
