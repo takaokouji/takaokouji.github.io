@@ -1,12 +1,12 @@
 ---
 permalink: /terms/
-title: "規約とプライバシーポリシー"
-last_modified_at: 2021-08-30T16:18:00+09:00
+title: "プライバシーポリシーと利用規約"
+last_modified_at: 2021-09-05T01:01:11:25+0900
 toc: true
 sitemap: true
 ---
 
-## Privacy Policy
+## プライバシーポリシー
 
 The privacy of my visitors is extremely important. This Privacy Policy outlines the types of personal information that is received and collected and how it is used.
 
