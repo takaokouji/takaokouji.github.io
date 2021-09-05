@@ -7,9 +7,10 @@ header:
   overlay_image: /assets/images/wanna-submit-sitemap/google-search-console-sitemap.png
   overlay_filter: 0.4
 tagline: "だけどできないのはなぜ？"
-last_modified_at: 2021-08-30T22:22:23:52+0900
+last_modified_at: 2021-09-05T22:22:25:41+0900
 ---
 [Google Search Console](https://search.google.com/search-console) に [sitemap.xml](https://takaokouji.github.io/sitemap.xml) を追加できない。
+(追記: 2021-09-05T22:22:23:56+0900) 無事追加できた。特に何もしていない。サイトができてからしばらくしないといけないとか？
 
 sitemap.xml にアクセスするとそれっぽい XML を返している。
 それに、 [XML Sitemap Validator - XML-Sitemaps.com](https://www.xml-sitemaps.com/validate-xml-sitemap.html?op=validate-xml-sitemap&go=1&sitemapurl=https%3A%2F%2Ftakaokouji.github.io%2Fsitemap.xml&submit=Validate+Sitemap) でチェックしても問題は見つからない。
