@@ -9,11 +9,11 @@ last_modified_at: 2021-10-03T23:23:27:13+0900
 高尾が解説する 詳解Railsデザインパターン・シリーズの「Interactor」編です。
 
 他のデザインパターンも解説していますので、よろしければご覧ください。
-- [詳解Railsデザインパターン：FormObject](/output/form-object/)
+- [詳解Railsデザインパターン：Formオブジェクト](/output/form-object/)
 
 - - -
 
-Rails の Interactor パターンは [FormObject](/output/form-object/) と同様に Rails のコントローラーの肥大化するのを防ぐことに効果があるデザインパターンです。
+Rails の Interactor パターンは [Formオブジェクト](/output/form-object/) と同様に Rails のコントローラーの肥大化するのを防ぐことに効果があるデザインパターンです。
 
 類似するRailsのデザインパターンとして「Service Object」と呼ばれるものがあります。これについては [Railsで重要なパターンpart 1: Service Object（翻訳）｜TechRacho by BPS株式会社](https://techracho.bpsinc.jp/hachi8833/2017_10_16/46482) が詳しいです。さらに [Service Objectがアンチパターンである理由とよりよい代替手段（翻訳）｜TechRacho by BPS株式会社](https://techracho.bpsinc.jp/hachi8833/2018_04_16/55130) には問題点として以下が挙げられています。
 
