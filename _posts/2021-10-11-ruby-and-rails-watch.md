@@ -44,10 +44,6 @@ Ruby の最新情報は [nagachikaさん (@nagachika) / Twitter](https://twitter
 
 参考情報: [2021-10-04 ~ 2021-10-10にRailsにマージされたPR](https://github.com/rails/rails/pulls?q=is%3Apr+is%3Aclosed+merged%3A2021-10-04..2021-10-10)
 
-### [週刊Railsウォッチ: ruby/debug 1.2.0リリース、Railsにはthorが入っている、tendejitほか（20211006後編）｜TechRacho by BPS株式会社](https://techracho.bpsinc.jp/hachi8833/2021_10_06/112178)
-
-Rails以外の記事だったので省略。
-
 ### [週刊Railsウォッチ: Rails 7でbyebugがruby/debugに変更、GitHub Codespacesをサポートほか（20211004前編）｜TechRacho by BPS株式会社](https://techracho.bpsinc.jp/hachi8833/2021_10_04/112129)
 
 > [ByeBugがruby/debugに置き換わる](https://techracho.bpsinc.jp/hachi8833/2021_10_04/112129#1-1)
@@ -80,3 +76,7 @@ Rails以外の記事だったので省略。
 
 [https://github.com/rails/rails/pull/43227/files](https://github.com/rails/rails/pull/43227/files) より
 【仕様変更】もしCSPの設定を行っている場合は、設定が追加されたり、設定方法が少し変わったりしているので、変更点を確認したほうがいい。
+
+### [週刊Railsウォッチ: ruby/debug 1.2.0リリース、Railsにはthorが入っている、tendejitほか（20211006後編）｜TechRacho by BPS株式会社](https://techracho.bpsinc.jp/hachi8833/2021_10_06/112178)
+
+Rails以外の記事だったので省略。
