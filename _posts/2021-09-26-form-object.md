@@ -1,12 +1,13 @@
 ---
 layout: single
-title:  "詳解Railsデザインパターン：FormObject"
+title:  "詳解Railsデザインパターン：Formオブジェクト"
 categories: output
 tags: ruby rails
 toc: true
-last_modified_at: 2021-09-26T13:13:20:51+0900
+last_modified_at: 2021-10-10T22:22:14:03+0900
 ---
-高尾が解説する 詳解Railsデザインパターン・シリーズ[^1] の「FormObject」編です。
+高尾が解説する 詳解Railsデザインパターン・シリーズ[^1] の「Formオブジェクト」編です。
+(2021-10-10T22:22:14:34+0900追記) パターン名を「FormObject」から「Formオブジェクト」に変更しました。
 
 [^1]: 詳解Railsデザインパターン・シリーズといいつつ、まだこの記事しかありません。続けばいいな〜。
 
@@ -23,15 +24,15 @@ Railsのコントローラーが肥大化するのは避けられません。ユ
 [accepts_nested_attributes_forを使わず、複数の子レコードを保存する | Money Forward Engineers' Blog](https://moneyforward.com/engineers_blog/2018/12/15/formobject/) より
 > 社内でも accepts_nested_attributes_for は今後は使わないようにして、既存のコードもリプレイスしていく活動が始まっているので accepts_nested_attributes_for を使わずに、 FormObject を使って複数リリースの同時保存を行うコードを書いてみました。
 
-↑で紹介されている方法はよく使われているため FormObject パターンという名前がついています。
+↑で紹介されている方法はよく使われているため Formオブジェクト パターンという名前がついています。
 
-今回はこの `FormObject` パターンを扱います。
+今回はこの `Formオブジェクト` パターンを扱います。
 
 {% include advertisements.html %}
 
 ## 関連記事・レポジトリ
 
-まずは関連記事の紹介。どれも良記事。これらを読めば FormObject を理解した気になれます。
+まずは関連記事の紹介。どれも良記事。これらを読めば Formオブジェクト を理解した気になれます。
 - [Railsのデザインパターン: Formオブジェクト - applis](https://applis.io/posts/rails-design-pattern-form-objects)
   - 日本語だとこれでOK
 - [Let's play design patterns: Form Objects – Nimble](https://nimblehq.co/blog/lets-play-design-patterns-form-objects)
@@ -43,13 +44,13 @@ Railsのコントローラーが肥大化するのは避けられません。ユ
   - タイムリーなネタ。この考えに同意し、この記事でも `to_model` メソッドは実装しません。
 
 次に、Railsデザインパターンのコード例が [Selleo/pattern: A collection of lightweight, standardized, rails-oriented patterns.](https://github.com/Selleo/pattern) で公開されています。
-FormObject の実装例は [pattern/form.rb at master · Selleo/pattern](https://github.com/Selleo/pattern/blob/master/lib/patterns/form.rb) です。
+Formオブジェクト の実装例は [pattern/form.rb at master · Selleo/pattern](https://github.com/Selleo/pattern/blob/master/lib/patterns/form.rb) です。
 
 このコード例がとても良い。説明付きでコードが短く、gemを使わなくても再実装が簡単。Railsデザインパターンで困ったらまずはこのコードを見ればOK。
 
 ## 対象のRubyとRails
 
-ここからは、具体的なコード例を挙げていきます。ただし、FormObject が最も使われている検索フォームのようなものは扱わず、特定のモデルの CRUD のフォームを扱います。
+ここからは、具体的なコード例を挙げていきます。ただし、Formオブジェクト が最も使われている検索フォームのようなものは扱わず、特定のモデルの CRUD のフォームを扱います。
 
 対象のRubyとRailsは以下です。
 - ruby 3.0.1p64 (2021-04-05 revision 0fb782ee38) [x86_64-darwin19]
@@ -57,7 +58,7 @@ FormObject の実装例は [pattern/form.rb at master · Selleo/pattern](https:/
 
 ## ベースクラス FormBase
 
-まずは FormObject の親クラスとなる FormBase クラス。
+まずは Formオブジェクト の親クラスとなる FormBase クラス。
 
 ```ruby
 # app/forms/form_base.rb
@@ -100,20 +101,20 @@ class FormBase
 end
 ```
 
-## 単純なモデルに対する FormObject
+## 単純なモデルに対する Formオブジェクト
 
-更新対象の属性が name だけという単純なモデルに対する FormObject 。 **こういうものには FormObject パターンを使うべきではないのですが** 、これから複雑なものを説明するのでそのための準備運動です。
+更新対象の属性が name だけという単純なモデルに対する Formオブジェクト 。 **こういうものには Formオブジェクト パターンを使うべきではないのですが** 、これから複雑なものを説明するのでそのための準備運動です。
 
-いちおうマルチテナントを意識して tenant との関連も扱います。バリデーションはモデルのものをそのまま使う想定です。 FormObject とモデルで2重管理するのはつらいですからね。
+いちおうマルチテナントを意識して tenant との関連も扱います。バリデーションはモデルのものをそのまま使う想定です。 Formオブジェクト とモデルで2重管理するのはつらいですからね。
 
-### FormObject
+### Formオブジェクト
 
 操作対象のモデルのインスタンスを @user に格納します。
 id と persisted? は @user のものをそのまま使います。
 initialize では必須のパラメーターとしてテナント情報(tenant)、省略可能なパラメーターとしてリクエストパラメーター(attribute)、更新対象のモデルのインスタンス(user)を取り、それらをインスタンス変数に格納します。userが省略された場合に初期状態の User モデルのインスタンスを生成するのがポイントです。
 フォームからの入力は `user_attributes=(other)` で処理します。
 
-また、モデルのバリデーションはそのまま使っていて、persist のなかで user.invalid? でチェック。バリデーションエラーが発生したら `errors_from_user` を呼び出して **FormObject の errors に User モデルのバリデーションエラーのメッセージをコピーしています** 。
+また、モデルのバリデーションはそのまま使っていて、persist のなかで user.invalid? でチェック。バリデーションエラーが発生したら `errors_from_user` を呼び出して **Formオブジェクト の errors に User モデルのバリデーションエラーのメッセージをコピーしています** 。
 
 ```ruby
 # app/forms/user_form.rb
@@ -281,12 +282,12 @@ en:
         name: "Name"
 ```
 
-## 1対多のモデルに対する FormObject
+## 1対多のモデルに対する Formオブジェクト
 
 続いては、1つの目標 Objective と3つの成果指標 KeyResult を扱う場合。
-FormObject を使えば `accepts_nested_attributes_for` は不要になります。が、その分やることは多いです。
+Formオブジェクト を使えば `accepts_nested_attributes_for` は不要になります。が、その分やることは多いです。
 
-### FormObject
+### Formオブジェクト
 
 Objective モデルを objective、KeyResult モデルを key_results で扱います。前者は単体、後者は複数。
 UserForm と違うところは `initialize`、`key_results_attributes=`、`errors_from_key_results` で複数のレコードを扱うところです。
@@ -379,7 +380,7 @@ end
 
 ### Controller
 
-コントローラーは User のものからほとんど変わりません。これが FormObject のメリットです。逆にいうとそれくらいしかメリットはないかもしれません。
+コントローラーは User のものからほとんど変わりません。これが Formオブジェクト のメリットです。逆にいうとそれくらいしかメリットはないかもしれません。
 
 ```ruby
 # app/controllers/okrs_controller.rb
@@ -493,9 +494,9 @@ en:
 
 ## まとめ
 
-FormObject パターンを利用することでコントローラーのコードの一部を FormObject に移動させることができます。
-また、複数のモデルやそのインスタンスの関係をチェックするようなバリデーションをモデルから FormObject に移動させることができます。
+Formオブジェクト パターンを利用することでコントローラーのコードの一部を Formオブジェクト に移動させることができます。
+また、複数のモデルやそのインスタンスの関係をチェックするようなバリデーションをモデルから Formオブジェクト に移動させることができます。
 
-その反面、単体のモデルのインスタンスを扱うフォームでは、FormObject に関するコードを追加するオーバーヘッドが大きくなります。
+その反面、単体のモデルのインスタンスを扱うフォームでは、Formオブジェクト に関するコードを追加するオーバーヘッドが大きくなります。
 
 適材適所で使う必要があるでしょう。
