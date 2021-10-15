@@ -63,6 +63,10 @@ OK
 - nkf: 0.1.0 から 0.1.1
 - base64:0.1.0 から 0.1.1
 
+追記: [@nagachika](https://twitter.com/nagachika) さんからのコメント。なるほど！
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">なお標準添付ライブラリのバージョンbumpされてるのは、3.1.0 リリース時に default gems 化されているものは変更点があったらバージョンを上げておかないと、RubyGems で公開されているものと不整合が起きてbundlerでの解決とかsecurity fix時の影響バージョンのアナウンスとかに問題が起きるからかと</p>&mdash; nagachika (@nagachika) <a href="https://twitter.com/nagachika/status/1449020651587604485?ref_src=twsrc%5Etfw">October 15, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ### ruby 3.0
 
 > [merge revision(s) 89242279e61b023a81c58065c62a82de8829d0b3,529fc204af… · ruby/ruby@fe9d33b](https://github.com/ruby/ruby/commit/fe9d33beb78d5c7932a5c2ca3953045c0ae751d5)
