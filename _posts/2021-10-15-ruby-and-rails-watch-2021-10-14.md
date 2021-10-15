@@ -4,7 +4,7 @@ title:  "【不定期配信】最新のRuby & Railsへのバージョンアッ�
 categories: output
 tags: ruby rails
 toc: true
-last_modified_at: 2021-10-15T22:22:53:25+0900
+last_modified_at: 2021-10-15T23:23:41:57+0900
 ---
 Ruby の最新情報は [nagachikaさん (@nagachika) / Twitter](https://twitter.com/nagachika) が [ruby trunk changes](https://ruby-trunk-changes.hatenablog.com/) 、Rails の最新情報は [TechRacho｜BPS株式会社のRuby on Rails開発情報サイト](https://techracho.bpsinc.jp/) が [週刊Railsウォッチの記事一覧｜TechRacho by BPS株式会社](https://techracho.bpsinc.jp/tag/%e9%80%b1%e5%88%8arails%e3%82%a6%e3%82%a9%e3%83%83%e3%83%81) で公開してくださっています。両記事ともに大変有益な情報です。ありがたいことです。
 
