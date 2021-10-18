@@ -84,7 +84,7 @@ Ractor.make_shareable の[バグ](https://bugs.ruby-lang.org/issues/18023) が�
 
 ### Railsの仕様変更の一覧
 
-#### Rails 7.0
+変更なし。
 
 {% include advertisements.html %}
 
