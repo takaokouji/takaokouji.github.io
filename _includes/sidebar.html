@@ -1,0 +1,35 @@
+{% if page.author_profile or layout.author_profile or page.sidebar %}
+<script type="text/javascript">
+  amzn_assoc_ad_type ="responsive_search_widget";
+  amzn_assoc_tracking_id ="takaokouji-22";
+  amzn_assoc_marketplace ="amazon";
+  amzn_assoc_region ="JP";
+  amzn_assoc_placement ="";
+  amzn_assoc_search_type = "search_widget";
+  amzn_assoc_width ="250";
+  amzn_assoc_height ="350";
+  amzn_assoc_default_search_category ="";
+  amzn_assoc_default_search_key ="";
+  amzn_assoc_theme ="light";
+  amzn_assoc_bg_color ="FFFFFF";
+</script>
+
+<div class="sidebar sticky">
+    {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
+    {% if page.sidebar %}
+    {% for s in page.sidebar %}
+    {% if s.image %}
+    <img src="{{ s.image | relative_url }}"
+         alt="{% if s.image_alt %}{{ s.image_alt }}{% endif %}">
+    {% endif %}
+    {% if s.title %}<h3>{{ s.title }}</h3>{% endif %}
+    {% if s.text %}{{ s.text | markdownify }}{% endif %}
+    {% if s.nav %}{% include nav_list nav=s.nav %}{% endif %}
+    {% endfor %}
+    {% if page.sidebar.nav %}
+    {% include nav_list nav=page.sidebar.nav %}
+    {% endif %}
+    {% endif %}
+    <script src="//z-fe.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&Marketplace=JP"></script>
+</div>
+{% endif %}
