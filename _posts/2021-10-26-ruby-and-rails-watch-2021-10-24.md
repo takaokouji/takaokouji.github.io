@@ -24,6 +24,7 @@ Rails の最新情報は [Pull requests · rails/rails](https://github.com/rails
 
 #### ruby trunk
 
+- `ruby --enable=all` のときに YJIT が有効になります。ただし、 ruby 自身のビルドオプションによっては MJIT に戻すこともできます。
 - `require 'did_you_mean/formatters/plain_formatter'`
 - `require 'did_you_mean/formatters/verbose_formatter'`
 - CSV::Parserの問題のある行を解析する処理
@@ -31,9 +32,6 @@ Rails の最新情報は [Pull requests · rails/rails](https://github.com/rails
 
 以下、変更点の詳細です。
 
-### ruby trunk
-
-- `ruby --enable=all` のときに YJIT が有効になります。ただし、 ruby 自身のビルドオプションによっては MJIT に戻すこともできます。
 
 #### [ruby-trunk-changes 2021-10-22 - ruby trunk changes](https://ruby-trunk-changes.hatenablog.com/entry/ruby_trunk_changes_20211022)
 
