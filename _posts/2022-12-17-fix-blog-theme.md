@@ -4,7 +4,7 @@ title:  "n回目のブログ再開宣言！"
 categories: diary
 tags:
 toc: false
-last_modified_at: 2022-12-17T22:22:30:29+0900
+last_modified_at: 2022-12-17T23:23:25:30+0900
 ---
 
 しばらくぶりのブログ更新になってしまいました。なんかすみません。
@@ -17,7 +17,9 @@ GitHub Pages + Jekyll + Minimal Mistakes という限定的な話なので、あ
 
 このブログは、 [GitHub Pages](https://docs.github.com/ja/pages/getting-started-with-github-pages/about-github-pages) 上で [Jekyll](https://jekyllrb.com/) というソフトウェアを使ってMarkdownの文章からHTMLを生成しています。また、テーマとして [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) を採用しています。無料で広告も可能。大量アクセスにも耐えられるシステム。さらに、ブログを運用するためのシステム的なノウハウもそこそこ得ることができます。私にはちょうどよいものです。
 
-で、その [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) というテーマで、少し気にいらないところがあります。目指したいのは [Zenn](https://zenn.dev/) や [Qiita](https://qiita.com/)。でも、やたらでかいんですよね。フォントが。調べると22pxくらいありました。ブラウザの横幅によって自動的にフォントサイズが大きくなるようになっています。それ自体はすばらしいのですが、技術文章でフォントサイズが大きいのは致命的です。ソースコードとかすぐに改行されてしまって、見にくいです。
+で、その [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/) というテーマで、少し気にいらないところがあります。目指したいのは [Zenn](https://zenn.dev/) や [Qiita](https://qiita.com/)。
+
+でも、やたらでかいんですよね。フォントが。調べると22pxくらいありました。ブラウザの横幅によって自動的にフォントサイズが大きくなるようになっています。それ自体はすばらしいのですが、技術文章でフォントサイズが大きいのは致命的です。ソースコードとかすぐに改行されてしまって、見にくいです。
 
 そこで、フォントサイズを変更しました。以下の内容の `assets/css/main.scss` を作成すると実現できました。横幅によらず 16px にしています。
 ```scss
