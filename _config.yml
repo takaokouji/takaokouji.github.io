@@ -122,6 +122,9 @@ author:
     - label: "Instagram"
       icon: "fab fa-fw fa-instagram"
       # url: "https://instagram.com/takaokouji"
+    - label: "NaCl Blog Hub"
+      icon: "fas fa-fw fa-link"
+      url: "https://blog-hub.netlab.jp/"
 
 # Site Footer
 footer:
