@@ -1,8 +1,8 @@
 ---
 layout: single
 title:  "PCクーラーだけじゃなかった！熱すぎるMacBook Proを冷ますのに効果的なもの"
-categories: buy
-tags:
+categories: output
+tags: buy
 header:
   overlay_image: /assets/images/summer-and-macbook-are-hot/B085QJB58B.jpg
   overlay_filter: 0.4

@@ -2,7 +2,7 @@
 layout: single
 title:  "CoderDojoしまね・オンラインを開催しました！"
 categories: diary
-tags: coderdojo
+tags: progshou event
 toc: true
 last_modified_at: 2021-09-11T18:18:08:25+0900
 ---

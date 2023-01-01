@@ -2,7 +2,7 @@
 layout: single
 title:  "Railsアンチパターン: コントローラーのbefore_actionでset_xxx (前編)"
 categories: output
-tags: ruby rails kaigionrails
+tags: ruby rails event
 toc: true
 last_modified_at: 2021-10-26T01:01:05:21+0900
 ---

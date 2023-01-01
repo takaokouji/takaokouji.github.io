@@ -1,7 +1,7 @@
 ---
 layout: single
 title:  "明日はRubyKaigi2021！"
-categories: dialy
+categories: diary
 tags: ruby
 last_modified_at: 2021-09-09T00:00:02:00+0900
 ---
