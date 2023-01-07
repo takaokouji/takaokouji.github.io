@@ -7,8 +7,8 @@ header:
   caption: "Rubyのコードをブロックに変換する"
 categories: output
 tags: smalruby
-toc: false
-last_modified_at: 2023-01-04T16:16:58:44+0900
+toc: true
+last_modified_at: 2023-01-07T11:11:04:35+0900
 ---
 
 今回はスモウルビーそのものを改良するときのやり方を説明します。開発するのは、Rubyのプログラムをスモウルビーのブロックに変換する機能です。
@@ -31,11 +31,17 @@ last_modified_at: 2023-01-04T16:16:58:44+0900
 
 ### やりたいこと: Rubyのプログラムをスモウルビーのブロックに変換する
 
+今回は、Ruby の命令 `when_flag_clicked do ~ end` を、イベントブロック `フラグが押されたとき` に変換できるようにします。
+
+![Rubyの命令をブロックに変換する](/assets/images/develop-smalruby-ruby-to-block/overlay.png)
+
 なにはともあれ最終的な修正内容をざっと見てください。これでだいたい何をするのか、わかると思います。
 
 - [feat: when_flag_clicked / ruby to block [#309] #321](https://github.com/smalruby/smalruby3-gui/pull/321/files)
 
 それでは、チュートリアル形式でスモウルビーそのものの開発方法を説明していきます。
+
+### 準備
 
 Rubyのプログラムをスモウルビーのブロックに変換する処理は、ブロックのカテゴリごとにファイルを分けて実装しています。今回は、イベントカテゴリなので修正するのは次のファイルです。
 
@@ -45,8 +51,6 @@ Rubyのプログラムをスモウルビーのブロックに変換する処理�
   - [smalruby3\-gui/src/lib/ruby\-to\-blocks\-converter/event\.js](https://github.com/smalruby/smalruby3-gui/blob/develop/src/lib/ruby-to-blocks-converter/event.js)
 
 他のカテゴリもファイル名からどのファイルに実装されているのか推測できると思います。基本的なブロックだけでなく、拡張機能のものも同じところにあります。
-
-今回は、Ruby の命令 `when_flag_clicked do ~ end` を、イベントブロック `フラグが押されたとき` に変換できるようにします。
 
 まずは常にテストを実行できる状態にします ([smalruby3-develop](https://github.com/smalruby/smalruby3-develop)レポジトリを利用して、Dockerを使って開発しています) 。
 
@@ -67,6 +71,8 @@ Watch Usage
  › Press q to quit watch mode.
  › Press Enter to trigger a test run.
 ```
+
+### テストの実装
 
 つぎにテストを作ります。先に変換処理を実装してもいいのですが、動作確認でブラウザを操作するのが手間なのと、テストを後で実装するとなると面倒くさくなります。私は先にテストから書くことをオススメします。
 
@@ -157,6 +163,8 @@ expected = [
           at new Promise (<anonymous>)
       at processTicksAndRejections (internal/process/task_queues.js:95:5)
 ```
+
+### 変換処理の実装
 
 つぎに変換処理を実装します。
 
@@ -297,7 +305,7 @@ Blockly.Blocks['event_whenkeypressed'] = {
 
 これでRubyのプログラム `when_flag_clicked do ~ end` をスモウルビーのブロック `フラグが押されたとき` に変換することができるようになりました。
 
-- - -
+### まとめ
 
 まとめます。
 

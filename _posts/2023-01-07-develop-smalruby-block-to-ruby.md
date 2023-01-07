@@ -1,19 +1,27 @@
 ---
 layout: single
 title: "スモウルビーの開発方法:スモウルビーのブロックをRubyのプログラムに変換する"
+header:
+  overlay_image: /assets/images/develop-smalruby-block-to-ruby/overlay.png
+  overlay_filter: 0.4
+  caption: "ブロックをRubyのコードに変換する"
 categories: output
 tags: smalruby
-toc: false
-last_modified_at: 2023-01-07T02:34:10+0900
+toc: true
+last_modified_at: 2023-01-07T11:11:07:09+0900
 ---
 
-[先日の続き]({{ site.baseurl }}/output/develop-smalruby-ruby-to-block/) です。今回はスモウルビーそのものを改良して、スモウルビーのブロックをRubyのプログラムに変換するやり方を説明します。
+[先日の続き](/output/develop-smalruby-ruby-to-block/) です。今回はスモウルビーそのものを改良して、スモウルビーのブロックをRubyのプログラムに変換するやり方を説明します。
 
 {% include advertisements.html %}
 
 ### やりたいこと: スモウルビーのブロックをRubyのプログラムに変換する
 
-イベントブロック `フラグが押されたとき` を Ruby のプログラム `when_flag_clicked do ~ end` に変換できるようにします。例によって最終的な修正内容をざっと見てください。これでだいたい何をするのか、わかると思います。
+イベントブロック `フラグが押されたとき` を Ruby のプログラム `when_flag_clicked do ~ end` に変換できるようにします。
+
+![ブロックをRubyのプログラムに変換する](/assets/images/develop-smalruby-block-to-ruby/overlay.png)
+
+例によって最終的な修正内容をざっと見てください。これでだいたい何をするのか、わかると思います。
 
 - [feat: when\_flag\_cliecked \#326](https://github.com/smalruby/smalruby3-gui/pull/326/files)
 
@@ -150,7 +158,7 @@ Time:        43.538s
 - コミットしてpush、PRを作成する
 - Circle CIが通ればマージする
 
-という流れで実装します。その逆である [Rubyのプログラムをスモウルビーのブロックに変換すること]({{ site.baseurl }}/output/develop-smalruby-ruby-to-block/) と比べると簡単にできましたね。
+という流れで実装します。その逆である [Rubyのプログラムをスモウルビーのブロックに変換すること](/output/develop-smalruby-ruby-to-block/) と比べると簡単にできましたね。
 
 ### 協力者の募集
 
@@ -162,4 +170,4 @@ Time:        43.538s
 
 - - -
 
-※ 変換処理を作ることは簡単でしたが、その前段階として、手元で自動テストを正しく動作させることが大変でした。 [Docker上でjest + Selenium + Headless ChromeでE2Eテストを実現する]({{ site.baseurl }}/output/docker-jest-e2e-test/) 、 [test: add test for event blocks to generate ruby \#324](https://github.com/smalruby/smalruby3-gui/pull/324/files) 、 [test: block to ruby \#325](https://github.com/smalruby/smalruby3-gui/pull/325/files) がその足跡です。
+※ 変換処理を作ることは簡単でしたが、その前段階として、手元で自動テストを正しく動作させることが大変でした。 [Docker上でjest + Selenium + Headless ChromeでE2Eテストを実現する](/output/docker-jest-e2e-test/) 、 [test: add test for event blocks to generate ruby \#324](https://github.com/smalruby/smalruby3-gui/pull/324/files) 、 [test: block to ruby \#325](https://github.com/smalruby/smalruby3-gui/pull/325/files) がその足跡です。
