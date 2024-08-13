@@ -125,6 +125,9 @@ author:
     - label: "NaCl Blog Hub"
       icon: "fas fa-fw fa-link"
       url: "https://blog-hub.netlab.jp/"
+    - label: "拙著:きらきらRuby"
+      icon: "fas fa-fw fa-book"
+      url: "https://amzn.to/3SLNXrk"
 
 # Site Footer
 footer:
