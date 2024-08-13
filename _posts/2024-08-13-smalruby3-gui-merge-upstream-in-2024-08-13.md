@@ -1,6 +1,6 @@
 ---
 layout: single
-title: “smalruby3-guiをupstream の変更内容をマージしたい (が、まだできず…)”
+title: "smalruby3-guiをupstream の変更内容をマージしたい (が、まだできず…)"
 categories: output
 tags: smalruby
 toc: true
