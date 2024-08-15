@@ -4,7 +4,7 @@ title: “package-lock.json、原因はおまえかあああああッ！！！�
 categories: output
 tags: smalruby
 toc: true
-last_modified_at: 2024-08-16T00:00:00:00+0900
+last_modified_at: 2024-08-16T00:00:00+0900
 ---
 
 [ここしばらく smalruby3-gui に scratch-gui の修正内容を取り込もうと四苦八苦していました](/output/smalruby3-gui-merge-upstream-in-2024-08-13/) が、ついに終えることができました！
