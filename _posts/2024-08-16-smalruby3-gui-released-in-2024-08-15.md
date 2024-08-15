@@ -1,6 +1,6 @@
 ---
 layout: single
-title: “package-lock.json、原因はおまえかあああああッ！！！”
+title: "package-lock.json、原因はおまえかあああああッ！！！"
 categories: output
 tags: smalruby
 toc: true
