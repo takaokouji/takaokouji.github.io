@@ -23,7 +23,7 @@ name                     : "Kouji Takao"
 description              : "主にプログラミング言語Rubyを使ったソフトウェア開発のなかで「なるほど」と感じたことや「それは○○だよ」と説明できることを記事にしていきます"
 url                      : "https://takaokouji.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
+repository               : "takaokouji/takaokouji.github.io"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
@@ -37,7 +37,7 @@ comments:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
     # https://developers.facebook.com/docs/plugins/comments
-    appid                : 
+    appid                :
     num_posts            : # 5 (default)
     colorscheme          : # "light" (default), "dark"
   utterances:
