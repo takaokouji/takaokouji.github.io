@@ -4,7 +4,6 @@
   "description": "主にプログラミング言語Rubyを使ったソフトウェア開発のなかで「なるほど」と感じたことや「それは○○だよ」と説明できることを記事にしていきます",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "any",
   "background_color": "#fff",
   "theme_color": "#fff",
   "orientation": "any",
