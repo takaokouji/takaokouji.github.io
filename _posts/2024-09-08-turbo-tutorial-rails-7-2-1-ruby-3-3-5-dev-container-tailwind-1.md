@@ -237,16 +237,16 @@ $ bin/dev
 
 いつもの Yay! じゃないのですが、ちゃんと表示されていました。
 
-Visual Studio Code 上のシンプルブラウザーだとダメみたい。Turbo が原因だと予想していますが、シンプルブラウザーのデバッグ方法がわからないため、深追いはやめます。Turbo を使っているウェブサイトでは Visual Studio Code のシンプルブラウザーは使えないということを覚えておこう。
+Visual Studio Code 上のシンプルブラウザーだとダメみたい。Turbo が原因だと予想していますが、デバッグ方法がわからないため深追いしません。 **Turbo を使っているウェブサイトでは Visual Studio Code のシンプルブラウザーは使えない** 、ということを覚えておきます。
 
 ```bash
 git add .
 git commit -m 'feat: install esbuild, tailwindcss'
 ```
 
-今回はここまで。ソースコードは [takaokouji/quote-editor](https://github.com/takaokouji/quote-editor) においています。
+今回はここまで。ソースコードは [takaokouji/quote-editor](https://github.com/takaokouji/quote-editor) においていますので、興味がある方は Watch していただけると励みになります。
 
-Dev Container は簡単そうに見えて、やってみるとそれなりに険しい道ですね。やはりやってみないとわからないことは多いと痛感しました。
+Dev Container は簡単そうに見えて、やってみるとそれなりに険しい道ですね。百聞は一見にしかず、ですね。
 
 ### 協力者の募集
 
