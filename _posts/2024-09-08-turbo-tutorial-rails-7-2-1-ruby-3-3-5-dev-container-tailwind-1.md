@@ -2,7 +2,7 @@
 layout: single
 title: "Turbo Rails Tutorial を Rails 7.2.1 / ruby 3.3.5 / Dev Container / tailwindcss でやってみた (1)"
 categories: output
-tags: ruby rails
+tags: ruby rails turbo devcontainer
 toc: true
 last_modified_at: 2024-09-08T17:00:00+0900
 ---
