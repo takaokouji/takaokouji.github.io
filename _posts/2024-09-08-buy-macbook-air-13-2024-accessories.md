@@ -67,7 +67,7 @@ last_modified_at: 2024-09-08T12:00:00+0900
 
 ![Moshi iGlaze ハードシェルケース MacBook Pro 14インチケース 2021 2022年発売 A2442 M1 Pro/Max対応 MacBook Pro 14インチ用 Liquid Retina XDRディスプレイタッチID付きハードケースカバー マットクリア](/assets/images/buy-macbook-air-13-2024-accessories/41prT8bGqjL._AC_SX679_.jpg)
 
-そこで今回は [ハードシェルではないPCケース](https://amzn.to/3Zatf8C) に入れて持ち運ぶことにして、天板にはいつでもステッカーを貼れるようにするために天板保護フィルムを使うことにしました。
+そこで今回は [ハードシェルではないPCケース](https://amzn.to/3Zatf8C) に入れて持ち運ぶことにしました。ただ、天板にはステッカーが貼りたいので保護フィルムを使うことにしました。
 
 ![MOFT 「最新開発」ノートpcケース ノートpcスタンド ノートパソコンケース ノートパソコンスタンド 13.3インチに対応 多機能 ケース/スタンド兼用 macbook air 用ケース surface laptop用ケース(ブラウン)](/assets/images/buy-macbook-air-13-2024-accessories/51JP2+kfSiL._AC_SL1500_.jpg)
 
