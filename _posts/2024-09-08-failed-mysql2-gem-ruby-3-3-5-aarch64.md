@@ -130,7 +130,7 @@ $ otool -L /opt/homebrew/lib/libzstd.1.5.6.dylib
         /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1345.100.2)
 ```
 
-この時点でエラーの原因はリンカーのパスに `libzstd.*` が含まれていないことがほぼ確定。そもそも Homebrew でインストールしたライブラリのパスを追加していなかったらしい。失敗、失敗。
+これでエラーの原因はリンカーのパスに `libzstd.*` が含まれていないことだとほぼ確定。そもそも Homebrew でインストールしたライブラリのパスを追加していなかったらしい。失敗、失敗。
 
 ```bash
 # HOMEBREW_PREFIX=/opt/homebrew
