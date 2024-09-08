@@ -59,9 +59,9 @@ Dev Container 機能拡張をインストール済みなので Dev Container を
 
 「コンテナーで開く」 (2回目からはスクリーンショットのように 「コンテナーで再度開く」)ボタンを押して、しばらくすると MySQL や Redis 、 Selenium などの必要なソフトウェアが全部インストールされた Docker コンテナが構築される。たったこれだけで Rails の開発環境が整う。Dev Container / Docker (docker compose) は便利すぎる。
 
-ただし、Selenium の Docker イメージは Apple Silicon 対応の `seleniarm/standalone-chromium` に変えないといけません。ちなみに Selenium は System Test で使います。
+ただし、CPU が Apple Silicon や ARM の場合は Selenium の Docker イメージを Apple Silicon 対応の `seleniarm/standalone-chromium` に変えないといけません。ちなみに Selenium は System Test で使います。
 
-いったん、すべての修正をコミットしておきます (以下のコマンド相当の操作を Visual Studio Code のソース管理で行います)。
+いったん、すべての修正をコミットしておきます。以下のコマンド相当の操作を Visual Studio Code のソース管理で行います。以降同様。
 
 ```bash
 git add .
