@@ -18,7 +18,7 @@ last_modified_at: 2024-09-08T17:00:00+0900
 - Visual Studio Code 1.93.0
   - Dev Container 機能拡張をインストール済み
 - [Homebrew](https://brew.sh/ja/)
-- ruby 3.3.51
+- ruby 3.3.5
   - [anyenv](https://github.com/anyenv/anyenv) で [rbenv](https://github.com/rbenv/rbenv) をインストール
   - ruby 3.3.5 を global に設定済み ( `rbenv global 3.3.5` )
 - rails 7.2.1 gem
