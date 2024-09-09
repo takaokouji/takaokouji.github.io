@@ -554,6 +554,19 @@ DBへの登録。
 bin/rails db:seed
 ```
 
+それとコーディングスタイルが不適切なので rubocop が警告を出していた (GitHub Actionsの失敗で気がついた)。これも修正しておく。
+
+```bash
+bin/rubocop -a
+```
+
+コミット、push。
+
+```bash
+git add .
+git commit -m 'style: rubocop'
+```
+
 これで本当に終わり。お疲れ様でした。
 
 今回はここまで。ソースコードは [takaokouji/quote-editor](https://github.com/takaokouji/quote-editor) においていますので、興味がある方は Watch していただけると励みになります。
