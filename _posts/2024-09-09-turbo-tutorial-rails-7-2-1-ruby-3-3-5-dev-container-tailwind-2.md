@@ -509,6 +509,53 @@ Finished in 1.405442s, 2.8461 runs/s, 7.8267 assertions/s.
 
 ![CRUD](/assets/images/turbo-tutorial-rails-7-2-1-ruby-3-3-5-dev-container-tailwind-2/SS_2024-09-09T22.47.30.png)
 
+#### One more thing...
+
+これで終わり。と思ったら続きがあった。
+
+コントローラー `app/controllers/quotes_controller.rb` の修正。`render :new` と `render :edit`に `, status: :unprocessable_entity` を追加する。こうしないとバリデーションエラーの際に画面が再描画されません。Rails 7のルールです。
+
+```ruby
+  # (省略)
+
+  def create
+    @quote = Quote.new(quote_params)
+
+    if @quote.save
+      redirect_to quotes_path, notice: "Quote was successfully created."
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  # (省略)
+
+  def update
+    if @quote.update(quote_params)
+      redirect_to quotes_path, notice: "Quote was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  # (省略)
+```
+
+DBの初期値 `db/seeds.rb` の実装。元々あったコメントはすべて削除した。
+
+```ruby
+puts "\n== Seeding the database with fixtures =="
+system("bin/rails db:fixtures:load")
+```
+
+DBへの登録。
+
+```bash
+bin/rails db:seed
+```
+
+これで本当に終わり。お疲れ様でした。
+
 今回はここまで。ソースコードは [takaokouji/quote-editor](https://github.com/takaokouji/quote-editor) においていますので、興味がある方は Watch していただけると励みになります。
 
 ### 協力者の募集
