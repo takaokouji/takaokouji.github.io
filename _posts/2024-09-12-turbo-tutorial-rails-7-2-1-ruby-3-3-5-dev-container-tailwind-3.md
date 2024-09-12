@@ -486,7 +486,9 @@ end
 
 今回はここまで。
 
-初 tailwindcss でしたが、これは便利。 `@import` が使えないのが不安でしたが、なんとかなりましたね。 PostCSS を使えば `@import` が使えたり、入れ子 CSS 相当のことができたりするようなので、次回はそれにチャレンジしようと思います。
+初 tailwindcss でしたが、これは便利。通常、フロントエンドは HTML + CSS + JavaScript で作るのですが tailwindcss を使えば CSS を引き算して HTML + JavaScript でできそう。
+
+また、`@import` が使えないのが不安でしたが、なんとかなりましたね。 PostCSS を使えば `@import` が使えたり、入れ子 CSS 相当のことができたりするようなので、次回はそれにチャレンジしようと思います。
 
 ソースコードは [takaokouji/quote-editor](https://github.com/takaokouji/quote-editor) においていますので、興味がある方は Watch していただけると励みになります。
 
