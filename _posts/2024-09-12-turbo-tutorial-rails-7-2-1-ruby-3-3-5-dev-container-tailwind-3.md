@@ -59,7 +59,7 @@ last_modified_at: 2024-09-12T12:00:00+0900
   },
 ```
 
-ついでに [【DevContainers】fatal: detected dubious ownership in repositoryの対処法](https://qiita.com/P-man_Brown/items/5628ef68f51d1acf38e0) を参考にして git の権限がない問題にも対応しておきます。
+それと [【DevContainers】fatal: detected dubious ownership in repositoryの対処法](https://qiita.com/P-man_Brown/items/5628ef68f51d1acf38e0) を参考にして git の権限がない問題にも対応しておきます。
 
 ```yaml
   "postCreateCommand": "sudo git config --system --add safe.directory ${containerWorkspaceFolder} && bin/setup"
