@@ -4,7 +4,7 @@ title: "Turbo Rails Tutorial を Rails 7.2.1 / ruby 3.3.5 / Dev Container / tail
 categories: output
 tags: ruby rails turbo devcontainer
 toc: true
-last_modified_at: 2024-09-13T12:00:00+0900
+last_modified_at: 2024-09-14T11:00:00+0900
 ---
 
 [前回の続き]({% post_url 2024-09-12-turbo-tutorial-rails-7-2-1-ruby-3-3-5-dev-container-tailwind-3 %}) です。[Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) と [tailwindcss](https://tailwindcss.com/) を利用して [Turbo Rails Tutorial](https://www.hotrails.dev/turbo-rails) をやっています。
