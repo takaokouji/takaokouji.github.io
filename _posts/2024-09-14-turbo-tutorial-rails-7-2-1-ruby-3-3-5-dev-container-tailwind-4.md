@@ -358,6 +358,8 @@ a {
 }
 ```
 
+ここまで。
+
 分割できたら `app/assets/stylesheets/application.postcss.css` を修正して、それらを読み込むようにします。
 
 ```css
@@ -377,7 +379,7 @@ a {
 @import "tailwindcss/utilities";
 ```
 
-これで CSS ファイルを分割できました。
+これで CSS ファイルを分割できました。ブラウザで一通り操作して、見た目が変わっていないことを確認します。
 
 ### CSS 入れ子
 
