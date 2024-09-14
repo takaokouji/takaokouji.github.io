@@ -167,7 +167,7 @@ module.exports = {
 
 これで OK。rails がコマンドを提供してくれていたので、簡単に PostCSS を導入できました。
 
-### ファイル分割
+#### ファイル分割
 
 次はファイル分割です。
 
@@ -381,7 +381,7 @@ a {
 
 これで CSS ファイルを分割できました。ブラウザで一通り操作して、見た目が変わっていないことを確認します。
 
-### CSS 入れ子
+#### CSS 入れ子
 
 次は [CSS 入れ子 (CSS nesting)](https://developer.mozilla.org/ja/docs/Web/CSS/CSS_nesting) に対応します。
 
