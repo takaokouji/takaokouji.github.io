@@ -41,13 +41,13 @@ last_modified_at: 2024-09-14T11:00:00+0900
 
 > To add support for nested declarations, we recommend our bundled tailwindcss/nesting plugin, which is a PostCSS plugin that wraps postcss-nested or postcss-nesting and acts as a compatibility layer to make sure your nesting plugin of choice properly understands Tailwind’s custom syntax.
 
-早速 PostCSS を導入します。railsがそのためのコマンドを提供してくれているので、それを使います。
+早速 PostCSS を導入します。railsコマンド一発で完了です。railsすごい！
 
 ```bash
 bin/rails css:install:postcss
 ```
 
-これによってなにが起きるのかが重要なので、実行結果を以下に転記します。
+ただ、これが何しているのかが知っておきたいので、実行ログを詳しく見てみます。
 
 ```text
        apply  /home/vscode/.rbenv/versions/3.3.5/lib/ruby/gems/3.3.0/gems/cssbundling-rails-1.4.1/lib/install/postcss/install.rb
@@ -126,14 +126,16 @@ Done in 0.70s.
          run  bundle install --quiet
 ```
 
-実行結果から以下のことがわかります。
+ここから次のことがわかりました。
 
 - PostCSS の設定ファイル `postcss.config.js` が追加されたこと
 - PostCSS の CSS ファイル `app/assets/stylesheets/application.postcss.css` が追加されたこと
 - npm の `postcss` `postcss-cli` `postcss-import` `postcss-nesting` `autoprefixer` パッケージが追加されたこと
 - CSS をビルドするコマンドが `postcss ./app/assets/stylesheets/application.postcss.css -o ./app/assets/builds/application.css` に変更されたこと
 
-これだけで PostCSS を使う準備がほとんど整いました。あとは、前回作成した tailwindcss の CSS を PostCSS から使えるようにするだけです。
+これだけで PostCSS を使う準備がほとんど整いました。
+
+あとは、前回作成した tailwindcss の CSS を PostCSS から使えるようにするだけです。
 
 `postcss.config.js` に tailwindcss の設定を追加して、
 
@@ -148,7 +150,7 @@ module.exports = {
 }
 ```
 
-`app/assets/stylesheets/application.tailwind.css` の内容をほぼそのまま `app/assets/stylesheets/application.postcss.css` に転記します。そして、`@tailwind base;` を `@import "tailwindcss/base";` に変えます。他の `@tailwind` もです。変更するのは先頭の数行だけです。
+`app/assets/stylesheets/application.tailwind.css` の内容を `app/assets/stylesheets/application.postcss.css` に転記します。そして、`@tailwind base;` を `@import "tailwindcss/base";` に変えます。他の `@tailwind` も変えます。
 
 ```css
 /* Entry point for your PostCSS build */
@@ -161,7 +163,9 @@ module.exports = {
 
 `tailwind.config.js` はそのままで OK。
 
-`app/assets/stylesheets/application.tailwind.css` を削除して、 `bin/dev` を再起動します。 これで OK。rails がインストールのコマンドを提供してくれているので簡単でした。
+最後に `app/assets/stylesheets/application.tailwind.css` を削除して、 `bin/dev` を再起動します。
+
+これで OK。rails がコマンドを提供してくれていたので、簡単に PostCSS を導入できました。
 
 ### ファイル分割
 
