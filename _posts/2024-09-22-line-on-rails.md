@@ -9,6 +9,8 @@ last_modified_at: 2024-09-22T12:00:00+0900
 
 現代のコミュニケーション手段として [LINE](https://line.me/ja/) はなくてはならないものになりました。今回は、その LINE を Ruby on Rails のアプリケーション (以降、Rails アプリ) から使えるようにします。
 
+ソースコードは [takaokouji/everdiary-line](https://github.com/takaokouji/everdiary-line) にあります。
+
 ### 環境
 
 - Apple M3 (MacBook Air 13 2024)
@@ -437,7 +439,7 @@ $ bin/rails console
 最後に LINE ログインを公開済みに変えます。これですべての LINE ユーザーがログインできるようになります。
 
 - [LINE Developers コンソール](https://developers.line.biz/ja/) にアクセスする
-- プラバイダーを選択する
+- プロバイダーを選択する
 - LINE ログインチャネルを選択する
 - ↓の画像を参考にして公開済みに変更する
 
@@ -514,6 +516,8 @@ end
 
 LINEログインとメッセージ送信。ここまでは先人の知恵をお借りしながら、無事にたどり着くことができました。
 問題はここからです。本番環境でLINE ログインを行うためには HTTPS 通信を実現しなければいけません。
+
+ここまでのソースコードは [takaokouji/everdiary-line](https://github.com/takaokouji/everdiary-line) に置いておきます。
 
 次回は、 Everdiary を aws 上にデプロイして、 ngrok なしで HTTPS 通信を行い、 LINE ログインとメッセージ送信を実現したいと思います。
 
