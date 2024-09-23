@@ -159,9 +159,8 @@ ngrok config add-authtoken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 `config/environments/development.rb`
 
 ```ruby
-  config.hosts = [
-    /.*\.ngrok-free\.app/
-  ]
+# (省略)
+  config.hosts << /.*\.ngrok-free\.app/
 end
 ```
 
