@@ -1,10 +1,12 @@
 ---
 layout: single
-title: "Ruby on RailsのアプリケーションでLINEログイン・メッセージ送信をできるようにする"
+title: "Ruby on Railsのアプリに LINEログイン、LINE Messaging APIによるメッセージ送信を組み込む"
+description: "LINE を Ruby on Rails のアプリケーションに組み込んで、LINEログイン、LINE Messaging APIによるメッセージ送信を可能にします"
+lang: ja_JP
 categories: output
 tags: ruby rails line
 toc: true
-last_modified_at: 2024-09-22T12:00:00+0900
+last_modified_at: 2024-09-23T12:00:00+0900
 ---
 
 現代のコミュニケーション手段として [LINE](https://line.me/ja/) はなくてはならないものになりました。今回は、その LINE を Ruby on Rails のアプリケーション (以降、Rails アプリ) から使えるようにします。
