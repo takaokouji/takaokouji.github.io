@@ -145,7 +145,7 @@ WIP
 
 開発しているときの LINE ログインのテストで利用する ngrok をセットアップします。
 
-ngrokにサインアップ(sign up)する。
+[ngrok](https://ngrok.com/) にサインアップ(sign up)する。
 
 サインアップ後の画面に従って、ngrokアプリケーションをインストールする。
 
