@@ -16,6 +16,7 @@ last_modified_at: 2024-09-22T12:00:00+0900
 - [Homebrew](https://brew.sh/ja/)
 - Visual Studio Code 1.93.0
   - Dev Container 機能拡張をインストール済み
+- Docker Desktop 4.34.2
 - ruby 3.3.5
   - [anyenv](https://github.com/anyenv/anyenv) で [rbenv](https://github.com/rbenv/rbenv) をインストール
   - ruby 3.3.5 を global に設定済み ( `rbenv global 3.3.5` )
@@ -23,44 +24,55 @@ last_modified_at: 2024-09-22T12:00:00+0900
   - `gem install rails`
 - 他のソフトウェアは Docker コンテナ上にインストール
 
-### Rails アプリケーション
+### Rails アプリ
 
-今回、1行日記を記録する Everdiary (エバーダイアリー) という Rails アプリで LINE を使えるようにします。Everdiary は、日記を書いた日と255文字以下の日記を記録する簡単なものです。
-まずはそれを用意します。
+今回 LINE を組み込むのは、1行日記を記録する Everdiary (エバーダイアリー) という Rails アプリです。Everdiary は、ユーザー(users)と日記(diaries)の2つのテーブルのみ。そして、日記には、日記を書いた日(written_on)と255文字以下の日記(content)の2つのカラムのみ、という単純なものにします。
 
-初期セットアップ。
+- ユーザー (users) テーブル
+  - Devise が自動生成するカラムのみ
+- 日記 (diaries) テーブル
+  - written_on: 日記を書いた日
+  - content: 日記
+  - user_id: ユーザーとの関連
+
+早速、作っていきます。
+
+初期セットアップ。ターミナルで実行します。
 
 ```bash
 rails new everdiary --css=tailwind --javascript=esbuild --database=mysql --devcontainer --skip-bundle --skip-git
+```
+
+Visual Studio Codeで Docker コンテナを構築。以降はコンテナ上で作業します。
+
+```bash
 code everdiary
-# Visual Studio Code でコンテナ起動
+```
+
+![Visual Studio Code でコンテナ起動](/assets/images/line-on-rails/SS_2024-09-23T18.17.39.png)
+
+コンテナ上で Rails の再セットアップ。こうすることで、tailwindcss や esbuild のインストールをコンテナ上で再現できる。
+
+```bash
 rm bin/rails
 bundle exec rails new . -f -n everdiary --css=tailwind --javascript=esbuild --database=mysql --devcontainer
 bin/bundle add tailwindcss-rails
 bin/dev
-# ブラウザで表示後、bin/devをcontrol-cで停止
 ```
 
-モデルの作成やDeviseの導入。
+ブラウザで表示後、bin/dev を control-c で停止しておく。
+
+モデルの作成やDeviseの導入。ターミナルで以下のコマンドを実行する。
 
 ```bash
-bin/rails generate scaffold --skip-jbuilder Diary written_on:date:uniq content:string --skip-jbuilder
 bin/bundle add devise
 bin/rails generate devise:install
 bin/rails generate devise User
-bin/rails generate migration add_user_reference_to_diaries user:references
+bin/rails generate scaffold Diary written_on:date:uniq content:string user:references --skip-jbuilder
 bin/rails db:migrate
 ```
 
-`app/models/diary.rb`
-
-```ruby
-class Diary < ApplicationRecord
-  belongs_to :user
-end
-```
-
-`app/models/user.rb`
+`app/models/user.rb` を修正する。
 
 ```ruby
 class User < ApplicationRecord
@@ -69,32 +81,32 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :diaries, dependent: :destroy
+  has_many :diaries, dependent: :destroy # ←この行を追加
 end
 ```
 
-`app/controllers/application_controller.rb`
+`app/controllers/application_controller.rb` を修正する。
 
 ```ruby
 class ApplicationController < ActionController::Base
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern
 
-  before_action :authenticate_user!, unless: :devise_controller?
+  before_action :authenticate_user!, unless: :devise_controller? # ←この行を追加
 end
 ```
 
-`app/controllers/diaries_controller.rb`
+`app/controllers/diaries_controller.rb` の修正。1行日記とログインユーザーを紐づけます。
 
 ```ruby
 # (省略)
     def diary_params
-      params.require(:diary).permit(:written_on, :content).merge(user: current_user)
+      params.require(:diary).permit(:written_on, :content).merge(user: current_user) # ←この行を修正
     end
 end
 ```
 
-`config/routes.rb`
+`config/routes.rb` を修正。 <http://localhost:3000/> にアクセスしたときや、ログインしたときに1行日記の一覧を表示するように修正。
 
 ```ruby
 # (省略)
@@ -103,16 +115,44 @@ end
 end
 ```
 
+`app/views/layouts/_navbar.html.erb` の作成。サインイン後にメールアドレスとサインアウト用のリンクを表示する。
+
+```erb
+<header class="flex items-center shadow-lg py-2 px-2 mb-10">
+  <% if user_signed_in? %>
+    <div class="font-bold mr-3">
+      <%= current_user.email %>
+    </div>
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete,
+      class: "rounded-md py-1 px-3 border-solid border-[1px] border-black block" %>
+  <% end %>
+</header>
+```
+
+`app/views/layouts/application.html.erb` の修正。
+
+```erb
+<%# 省略 %>
+  <body>
+    <%= render "layouts/navbar" %> <%# ←この行を追加 %>
+    <%= yield %>
+  </body>
+<%# 省略 %>
+```
+
+サーバーを起動して動作確認。
+
 ```bash
 bin/dev
 ```
 
-アカウントの作成、ログイン、ログアウトのURLは以下です。ログインページはつくらないため、それぞれのURLにブラウザで直接アクセスします。
+動作確認の内容は以下のようなものです。
 
-- アカウントの作成: http://localhost:3000/users/sign_up
-- ログイン: http://localhost:3000/users/sign_in
-- ログアウト: http://localhost:3000/users/sign_out
-- 日記の一覧: http://localhost:3000/diaries
+- <http://localhost:3000/> にアクセスすると、ログイン画面にリダイレクト
+  - ログイン画面と次のサインアップの画面にはスタイルが全くあたっていない。が、ここでは気にしないことにします。
+- サインアップを押して、メールアドレスとパスワードを入力して、ユーザーの作成
+- 日記の一覧画面を表示
+- 日記の作成・編集・削除
 
 これで必要最低限の機能を持った Rails アプリケーションができました。
 
@@ -147,7 +187,11 @@ WIP
 
 [ngrok](https://ngrok.com/) にサインアップ(sign up)する。
 
+WIP: サインアップの説明
+
 サインアップ後の画面に従って、ngrokアプリケーションをインストールする。
+
+WIP: ngrok config add-authtoken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx の説明。xxxxxをそのまま入力してしまうのを防ぐ。
 
 ```bash
 brew install ngrok/ngrok/ngrok
@@ -311,17 +355,47 @@ end
 bin/dev
 ```
 
-LINE ログインの
-ウェブアプリでLINEログインを利用する
-コールバックURL
-<https://xxx-xxx-xxx-xxx-xxx.ngrok-free.app/my_line_users/auth/line/callback>
-を指定する。
+さらに ngrok を起動します。
 
-<http://localhost:3000/> ではなく <https://xxx-xxx-xxx-xxx-xxx.ngrok-free.app/> にアクセスして、サインイン後に LINE Login を行う。
+```text
+$ ngrok http http://localhost:3000
+
+ngrok                                                                                                                                                                                           (Ctrl+C to quit)
+
+Share what you're building with ngrok https://ngrok.com/share-your-ngrok-story
+
+Session Status                online
+Account                       Kouji Takao (Plan: Free)
+Version                       3.16.0
+Region                        Japan (jp)
+Latency                       25ms
+Web Interface                 http://127.0.0.1:4040
+Forwarding                    https://xxx-xxx-xxx-xxx-xxx.ngrok-free.app -> http://localhost:3000
+```
+
+`Forwarding` に表示されている `https://xxx-xxx-xxx-xxx-xxx.ngrok-free.app` を LINE ログインチャネルのコールバックURLに指定します。
+
+- [LINE Developers コンソール](https://developers.line.biz/ja/)
+- LINE ログインチャネル
+- LINE ログイン設定タブ
+- ウェブアプリでLINEログインを利用する
+- コールバックURLに <https://xxx-xxx-xxx-xxx-xxx.ngrok-free.app/my_line_users/auth/line/callback> を指定する。
+
+これで準備ができました。
+
+<https://xxx-xxx-xxx-xxx-xxx.ngrok-free.app/> にアクセスして、サインイン後に LINE Login します。
+ポイントは <http://localhost:3000/> ではなく ngrok の URL でアクセスすることです。
 
 無事、ログインできて LINE のユーザーID (uid) を DB に保存できました。
 
-チャンネルは公開していないのですが、問題ないのだろうか。とりあえず次に進みます。
+もう一度 LINE ログインを試したければ、 rails console で MyLineUser を DB から削除します。
+
+```text
+$ bin/rails console
+> MyLineUser.last.destroy
+```
+
+ここでひとつ疑問が。チャンネルは公開していないのですが、問題ないのだろうか。とりあえず次に進みます。
 
 ### LINE メッセージ送信
 
