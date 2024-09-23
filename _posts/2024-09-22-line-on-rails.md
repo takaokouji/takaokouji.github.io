@@ -25,7 +25,8 @@ last_modified_at: 2024-09-22T12:00:00+0900
 
 ### Rails アプリケーション
 
-今回、LINE を使えるようにする Rails アプリは1行日記を記録する Everdiary (エバーダイアリー) です。日記を書いた日と255文字以下の日記
+今回、1行日記を記録する Everdiary (エバーダイアリー) という Rails アプリで LINE を使えるようにします。Everdiary は、日記を書いた日と255文字以下の日記を記録する簡単なものです。
+まずはそれを用意します。
 
 初期セットアップ。
 
@@ -124,11 +125,11 @@ WIP
 - LINE アカウントの作成
 - LINE Developers にログイン
 - プロバイダーの作成
-- LINE ログインの新規チャンネルの作成
+- LINE ログインの新規チャネルの作成
 - LINE 公式アカウントの作成
 - LINE 公式アカウント上の設定から「Messaging APIを利用する」
 - LINE Developersの作成したプロバイダーに戻る
-- Messaging APIのチャンネルを選択する
+- Messaging APIのチャネルを選択する
 - Messaging API設定タブを表示して、チャンネルアクセストークン(長期)を発行する。
 
 必要な情報
@@ -174,7 +175,7 @@ ngrok http http://localhost:3000
 
 ### LINE ログイン
 
-まずは LINE ログインを行い、LINEのユーザーID (id_token) を Rails アプリケーションのユーザーに紐づけます。
+まずは LINE ログインを行い、LINEのユーザーID (uid) を Rails アプリケーションのユーザーに紐づけます。
 
 LINEのユーザーIDを格納するテーブルを作ります。
 
