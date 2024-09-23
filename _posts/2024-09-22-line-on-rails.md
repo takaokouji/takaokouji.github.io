@@ -240,6 +240,16 @@ class User < ApplicationRecord
 end
 ```
 
+app/models/my_line_user.rb
+
+```ruby
+class MyLineUser < ApplicationRecord
+  devise :omniauthable, omniauth_providers: %i[line]
+
+  belongs_to :user
+end
+```
+
 `config/routes.rb`。 `devise_for :my_line_users, ...` を追加。
 
 ```ruby
