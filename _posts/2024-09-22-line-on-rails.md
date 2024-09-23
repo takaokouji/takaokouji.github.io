@@ -106,6 +106,22 @@ end
 end
 ```
 
+`app/views/diaries/_form.html.erb` の修正。user_id は入力不要なので削除します。
+
+```erb
+<%# 省略 %>
+  <div class="my-5">
+    <%= form.label :content %>
+    <%= form.text_field :content, class: "block shadow rounded-md border border-gray-400 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <%# ここに記述されていた user_id のフォームを削除する %>
+  <div class="inline">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<%# 省略 %>
+```
+
 `config/routes.rb` を修正。 <http://localhost:3000/> にアクセスしたときや、ログインしたときに1行日記の一覧を表示するように修正。
 
 ```ruby
@@ -148,11 +164,16 @@ bin/dev
 
 動作確認の内容は以下のようなものです。
 
-- <http://localhost:3000/> にアクセスすると、ログイン画面にリダイレクト
-  - ログイン画面と次のサインアップの画面にはスタイルが全くあたっていない。が、ここでは気にしないことにします。
+- <http://localhost:3000/> にアクセスすると、サインイン画面にリダイレクト
+  - サインイン画面と次のサインアップ画面にはスタイルが全くあたっていない。が、ここでは気にしないことにします。
 - サインアップを押して、メールアドレスとパスワードを入力して、ユーザーの作成
+
+![サインアップとサインイン](/assets/images/line-on-rails/SS_2024-09-23T19.02.59.gif)
+
 - 日記の一覧画面を表示
 - 日記の作成・編集・削除
+
+![日記のCRUD](/assets/images/line-on-rails/SS_2024-09-23T19.03.41.gif)
 
 これで必要最低限の機能を持った Rails アプリケーションができました。
 
