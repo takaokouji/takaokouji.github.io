@@ -445,21 +445,15 @@ $ bin/rails console
 
 ### LINE メッセージ送信
 
-日記を登録したときに LINE でメッセージ送信できるようにします。
+続いて、日記を登録したときに LINE でメッセージ送信できるようにします。まったく便利な機能ではありませんが、メッセージ送信のテストなので割り切って作りましょう。
+
+LINE のメッセージ送信で使う gem をインストールします。
 
 ```bash
 bin/bundle add line-bot-api
 ```
 
-`.env`。LINE Developers/プロバイダー/Messaging APIのチャネルシークレット、チャネルアクセストークンをそれぞれLINE_CHANNEL_SECRET、LINE_CHANNEL_TOKENに設定します。
-
-```shell
-# (省略)
-LINE_CHANNEL_SECRET="チャネルシークレット"
-LINE_CHANNEL_TOKEN="チャンネルアクセストークン"
-```
-
-`app/models/my_line_messaging.rb`。これは `MyLineMessaging.push_text_message(uid: current_user.my_line_user.uid, text: "送信するメッセージ")` のように使います。
+`app/models/my_line_messaging.rb`　の作成。これは `MyLineMessaging.push_text_message(uid: current_user.my_line_user&.uid, text: "送信するメッセージ")` のように使います。
 
 ```ruby
 class MyLineMessaging
@@ -484,7 +478,7 @@ class MyLineMessaging
 end
 ```
 
-`app/controllers/diaries_controller.rb`。`if current_user.my_line_user&.uid` でチェックして、LINE ログイン済みであればメッセージを送ります。
+`app/controllers/diaries_controller.rb` の修正。`if current_user.my_line_user&.uid` でチェックして、LINE ログイン済みであればメッセージを送ります。
 
 ```ruby
 # (省略)
@@ -493,11 +487,13 @@ end
 
     respond_to do |format|
       if @diary.save
+        # ここから
         if current_user.my_line_user&.uid
           text =  "#{@diary.written_on.strftime("%Y/%m/%d(%a)")} #{@diary.content}"
           MyLineMessaging.push_text_message(uid: current_user.my_line_user.uid, text:)
         end
 
+        # ここまで
         format.html { redirect_to @diary, notice: "Diary was successfully created." }
         format.json { render :show, status: :created, location: @diary }
       else
@@ -509,13 +505,17 @@ end
 # (省略)
 ```
 
-これで新しい日記を書くと LINE にメッセージが送られるようになります。
+これで新しい日記を書くと LINE でメッセージが送信されます。イェイ
+まぁ、とりあえず、メッセージを送信できることは確認できましたね。
 
-### LINE メッセージ受信
+![LINEメッセージ送信](/assets/images/line-on-rails/SS_2024-09-23T21.57.11.png)
 
-最後に LINE からメッセージを受信できるようにします。メッセージを受信したら最近の日記を表示することにします。
+### おわりに
 
-WIP
+LINEログインとメッセージ送信。ここまでは先人の知恵をお借りしながら、無事にたどり着くことができました。
+問題はここからです。本番環境でLINE ログインを行うためには HTTPS 通信を実現しなければいけません。
+
+次回は、 Everdiary を aws 上にデプロイして、 ngrok なしで HTTPS 通信を行い、 LINE ログインとメッセージ送信を実現したいと思います。
 
 ### 協力者の募集
 
