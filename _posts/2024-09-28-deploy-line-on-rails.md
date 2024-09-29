@@ -6,7 +6,7 @@ lang: ja_JP
 categories: output
 tags: ruby rails line kamel ec2
 toc: true
-last_modified_at: 2024-09-28T18:00:00+0900
+last_modified_at: 2024-09-29T12:00:00+0900
 ---
 
 [前回の続き]({% post_url 2024-09-22-line-on-rails %}) です。LINE ログイン、LINE Messaging API によるメッセージ送信が可能な Rails アプリ Everdiary を EC2 にデプロイします。今回初めて [Kamel](https://kamal-deploy.org/) を使ってデプロイしてみようと思います。また、HTTPS 通信には [Let's Encrypt](https://letsencrypt.org/ja/) の SSL 証明書を利用します。
