@@ -6,7 +6,7 @@ lang: ja_JP
 categories: output
 tags: ruby rails line kamel ec2
 toc: true
-last_modified_at: 2024-09-29T12:00:00+0900
+last_modified_at: 2024-09-29T18:00:00+0900
 ---
 
 [前回の続き]({% post_url 2024-09-22-line-on-rails %}) です。LINE ログイン、LINE Messaging API によるメッセージ送信が可能な Rails アプリ Everdiary を EC2 にデプロイします。今回初めて [Kamel](https://kamal-deploy.org/) を使ってデプロイしてみようと思います。また、HTTPS 通信には [Let's Encrypt](https://letsencrypt.org/ja/) の SSL 証明書を利用します。
@@ -679,7 +679,12 @@ bundle exec kamal remove
 
 でデプロイしたものをすべて削除できます。ただし、DBも消えるため注意してください。
 
-/var/lib/mysql は
+/var/lib/mysql の権限を変更しているのは、次のエラー対策です。こんな感じのエラーがバーっと表示されるので、原因を調べるのはいったんやめて、回避することにしました。
+
+```text
+rm stderr: rm: cannot remove 'everdiary-db/mysql-data/sys/sys_config.ibd': Permission denied
+rm: cannot remove 'everdiary-db/mysql-data/performance_schema/events_transacti_137.sdi': Permission denied
+```
 
 ### おわりに
 
