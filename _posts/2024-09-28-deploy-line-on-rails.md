@@ -523,9 +523,6 @@ builder:
 
 ssh:
   user: ubuntu
-  keys:
-    - "~/.ssh/everdiary.pem" # キーペアのファイル名
-    - ".ssh/everdiary.pem" # キーペアのファイル名(コンテナ用)
 
 accessories:
   db:
@@ -600,10 +597,11 @@ gem "tailwindcss-rails", "~> 2.7", :groups => [:development, :test] # この行�
 
 それではお待ちかねの kamal setup です。
 
-**VSCode のターミナル上で** 次のコマンドを実行します。なお、現時点の Kamal は ssh-agent が起動していないと動作しません。そのため、ssh-agent は使ってないけど起動しています (Net::SSH に ssh_agent: false オプションを渡せるようにする必要があり、簡単には直せそうになかったです)。
+**VSCode のターミナル上で** 次のコマンドを実行します。なお、現時点の Kamal は ssh-agent が起動していないと動作しません (Net::SSH に ssh_agent: false オプションを渡せるようにする必要があり、簡単には直せそうになかったです)。
 
 ```bash
 eval `ssh-agent -s`
+ssh-add .ssh/everdiary.pem
 set -a; source .env; set +a;
 bundle exec kamal setup
 ```
@@ -671,17 +669,17 @@ bundle exec kamal deploy
 
 ### やり直したいときは kamal remove
 
-WIP
-
 デプロイをやり直したいこともあるでしょう。
 その場合は、
 
 ```bash
-bundle exec kamal app exec --interactive --reuse chmod 777 -R everdiary-db
+bundle exec kamal accessory exec db "chmod 777 -R /var/lib/mysql"
 bundle exec kamal remove
 ```
 
 でデプロイしたものをすべて削除できます。ただし、DBも消えるため注意してください。
+
+/var/lib/mysql は
 
 ### おわりに
 
