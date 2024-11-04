@@ -1,7 +1,7 @@
 ---
 layout: single
 title: ZOOMとLINEのグループ通話をつないでビデオ会議を行う
-description: "[概要]"
+description: "ZOOM と LINE の音声を BlackHole でつなぎ、LINE のグループ通話に参加するだけで ZOOM のビデオ会議にも参加できるようにしてみました"
 lang: ja_JP
 header:
   overlay_image: /assets/images/video-meeting-with-zoom-and-line-group/zoom-and-line-summary.png
