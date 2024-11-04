@@ -1,4 +1,4 @@
-#! ruby
+#! /usr/bin/env ruby
 # frozen_string_literal: true
 
 require "pathname"
@@ -24,7 +24,7 @@ opt.parse!(ARGV)
 
 template_path = DRAFT_DIRECTORY.join("_template.md")
 
-basename = title.split(/\s+/).join("-")
+basename = ARGV.shift || title.split(/\s+/).join("-")
 draft_path = DRAFT_DIRECTORY.join("#{basename}.md")
 content = File.read(template_path)
   .gsub(/^title:.*$/, "title: #{title}")
